@@ -1,0 +1,17 @@
+operation: create, get, update, delete, reserve, generate
+pan: valid, invalid_length, invalid_checksum
+bin: valid, short, long, invalid_format
+expiry: valid, expired, invalid_format
+status: ACTIVE, INACTIVE, BLOCKED, DELETED
+balance: enough, not_enough
+count: one, many, invalid
+
+
+IF [operation] = "reserve" THEN
+    [pan] = "valid";
+
+IF [operation] = "get" THEN
+    [pan] = "valid";
+
+IF [operation] = "delete" THEN
+    [status] <> "DELETED";

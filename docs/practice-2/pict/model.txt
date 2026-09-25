@@ -1,0 +1,17 @@
+card_status: ACTIVE, INACTIVE, BLOCKED, EXPIRED
+balance: enough, not_enough
+daily_limit: below, equal, above
+monthly_limit: below, equal, above
+expiry: valid, current_month, expired
+amount: small, equal_limit, large
+terminal_type: pos, atm, ecommerce
+
+
+IF [card_status] <> "ACTIVE" THEN
+    [balance] = "enough";
+
+IF [card_status] <> "ACTIVE" THEN
+    [daily_limit] = "below";
+
+IF [expiry] = "expired" THEN
+    [balance] = "not_enough";
